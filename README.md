@@ -36,7 +36,19 @@ $(".box3>div").heightLine({
 fontSizeCheckオプションを指定するとフォントサイズが変更された際も高さを再設定します。
 
 ```
-$(".box3>div").heightLine({
+$(".box4>div").heightLine({
 	fontSizeCheck:true
 });
+```
+
+設定されたheightLineを取り除きたい場合はdestroyメソッドを利用します。
+
+```
+$(".box0>div").heightLine("destroy");
+```
+
+コンテンツの内部が変更された場合などはrefreshメソッドで再度高さの設定が可能です。
+
+```
+$(".box0>div").heightLine("refresh");
 ```
