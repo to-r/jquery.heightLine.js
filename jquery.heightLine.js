@@ -10,7 +10,7 @@
  *--------------------------------------------------------------------------*/
 ;(function($){
 	$.fn.heightLine = function(){
-		var target = this;
+		var target = this,fontSizeChangeTimer,windowResizeId= Math.random();
 		var heightLineObj = {
 			op : {
 				"maxWidth" : 10000,
@@ -44,36 +44,49 @@
 			refresh : function(op){
 				this.destroy();
 				this.create(op);
+			},
+			removeEvent :function(){
+				$(window).off("resize."+windowResizeId);
+				target.off("destroy refresh");
+				clearInterval(fontSizeChangeTimer);
 			}
 		}
-
-		$(window).on("resize",function(){
-			heightLineObj["refresh"]();
-		});
-
-		if(typeof arguments[0] === "string"){
-			heightLineObj[arguments[0]](arguments[1]);
+		if(typeof arguments[0] === "string" && arguments[0] === "destroy"){
+			target.trigger("destroy");
+		}else if(typeof arguments[0] === "string" && arguments[0] === "refresh"){
+			target.trigger("refresh");
 		}else{
 			heightLineObj["create"](arguments[0]);
-		}
-
-		if(heightLineObj.op.fontSizeCheck){
 			
-			if($("#fontSizeChange").length<=0){
-				var fontSizeChange = $("<span id='fontSizeChange'></span>").css({
-					width:0,
-					height:"1em",
-					position:"absolute",
-					left:0,
-					top:0
-				}).appendTo("body");
-			}
-			var defaultFontSize = $("#fontSizeChange").height();
-			setInterval(function(){
-				if(defaultFontSize != $("#fontSizeChange").height()){
-					heightLineObj["refresh"]();
+			$(window).on("resize."+windowResizeId,function(){
+				heightLineObj["refresh"]();
+			});
+
+			target.on("destroy",function(){
+				heightLineObj["removeEvent"]();
+				heightLineObj["destroy"]();
+			}).on("refresh",function(){
+				heightLineObj["refresh"]();
+			});
+
+			if(heightLineObj.op.fontSizeCheck){
+				
+				if($("#fontSizeChange").length<=0){
+					var fontSizeChange = $("<span id='fontSizeChange'></span>").css({
+						width:0,
+						height:"1em",
+						position:"absolute",
+						left:0,
+						top:0
+					}).appendTo("body");
 				}
-			},100);
+				var defaultFontSize = $("#fontSizeChange").height();
+				fontSizeChangeTimer = setInterval(function(){
+					if(defaultFontSize != $("#fontSizeChange").height()){
+						heightLineObj["refresh"]();
+					}
+				},100);
+			}
 		}
 		return target;
 	}

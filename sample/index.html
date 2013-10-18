@@ -5,34 +5,48 @@
 	<title>sample</title>
 	<meta name="viewport" content="width=device-width">
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="jquery.heightLine.js"></script>
+	<script src="../jquery.heightLine.js"></script>
 	<script>
 $(function(){
 	//指定なし
-	$(".box0>div").heightLine({
-		fontSizeCheck:true
+	$(".box0>div").heightLine();
+	//destroy
+	$(".destroy").click(function(){
+		$(".box0>div").heightLine("destroy");
 	});
+	//コンテンツの中身が変わる場合
+	$(".changeContent").click(function(){
+		$(".box0>div").text(function(){
+			return $(this).text()+$(this).text();
+		})
+	});
+	//refresh
+	$(".refresh").click(function(){
+		$(".box0>div").heightLine("refresh");
+	})
+
 	//maxWidth:640
 	$(".box1>div").heightLine({
-		maxWidth:640,
-		fontSizeCheck:true
+		maxWidth:640
 	});
 	//minWidth:640
 	$(".box2>div").heightLine({
-		minWidth:640,
-		fontSizeCheck:true
+		minWidth:640
 	});
 	//maxWidth:500 / minWidth:700
 	$(".box3>div").heightLine({
 		maxWidth:700,
-		minWidth:500,
+		minWidth:500
+	});
+
+	//fontSizeCheck
+	$(".box4>div").heightLine({
 		fontSizeCheck:true
 	});
 
 	$(window).resize(function(){
 		$(".width").text("横幅:"+$(window).width());
 	}).resize();
-
 
 });
 	</script>
@@ -57,6 +71,7 @@ $(function(){
 	</style>
 </head>
 <body>
+	
 	<div class="clear box box0">
 		<h4>指定なし</h4>
 		<div>あああああ</div>
@@ -65,7 +80,13 @@ $(function(){
 		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
 
 	</div>
-
+	<div class="clear">
+		<button class="destroy">destroy</button>
+	</div>
+	<div class="clear">
+		<button class="changeContent">内部のコンテンツを変更</button>
+		<button class="refresh">refresh</button>
+	</div>
 	<div class="clear box box1">
 		<h4>maxWidth:640</h4>
 		<div>あああああ</div>
@@ -87,6 +108,14 @@ $(function(){
 	<div class="clear box box3">
 		<hr>
 		<h4>maxWidth:500 / minWidth:700</h4>
+		<div>あああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+		<div>ああああああああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+	</div>
+	<div class="clear box box4">
+		<hr>
+		<h4>fontSizeCheck</h4>
 		<div>あああああ</div>
 		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
 		<div>ああああああああああ</div>
