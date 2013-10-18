@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>sample</title>
+	<meta name="viewport" content="width=device-width">
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="jquery.heightLine.js"></script>
+	<script>
+$(function(){
+	//指定なし
+	$(".box0>div").heightLine({
+		fontSizeCheck:true
+	});
+	//maxWidth:640
+	$(".box1>div").heightLine({
+		maxWidth:640,
+		fontSizeCheck:true
+	});
+	//minWidth:640
+	$(".box2>div").heightLine({
+		minWidth:640,
+		fontSizeCheck:true
+	});
+	//maxWidth:500 / minWidth:700
+	$(".box3>div").heightLine({
+		maxWidth:700,
+		minWidth:500,
+		fontSizeCheck:true
+	});
+
+	$(window).resize(function(){
+		$(".width").text("横幅:"+$(window).width());
+	}).resize();
+
+
+});
+	</script>
+	<style>
+.box div{
+	width:23%;
+	float:left;
+	margin-right:1%;
+	border: 1px solid red;
+	margin-bottom: 10px;
+}
+.clear{
+	clear: both;
+}
+.width{
+	background: red;
+	color: white;
+	position:fixed;
+	right:0;
+	top:0;
+}
+	</style>
+</head>
+<body>
+	<div class="clear box box0">
+		<h4>指定なし</h4>
+		<div>あああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+		<div>ああああああああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+
+	</div>
+
+	<div class="clear box box1">
+		<h4>maxWidth:640</h4>
+		<div>あああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+		<div>ああああああああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+
+	</div>
+
+	<div class="clear box box2">
+		<hr>
+		<h4>minWidth:640</h4>
+		<div>あああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+		<div>ああああああああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+	</div>
+
+	<div class="clear box box3">
+		<hr>
+		<h4>maxWidth:500 / minWidth:700</h4>
+		<div>あああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+		<div>ああああああああああ</div>
+		<div>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</div>
+	</div>
+	<div class="width"></div>
+</body>
+</html>
