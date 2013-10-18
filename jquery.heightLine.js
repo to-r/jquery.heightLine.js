@@ -1,3 +1,13 @@
+/*!--------------------------------------------------------------------------*
+ *  
+ *  jquery.heightLine.js
+ *  
+ *  MIT-style license. 
+ *  
+ *  2013 Kazuma Nishihata 
+ *  http://www.to-r.net
+ *  
+ *--------------------------------------------------------------------------*/
 ;(function($){
 	$.fn.heightLine = function(){
 		var target = this;
