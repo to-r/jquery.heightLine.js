@@ -1,0 +1,13 @@
+{
+  "name": "jquery.heightLine.js",
+  "version": "1.0.0",
+  "main": "jquery.heightLine.js",
+  "ignore": [
+    "sample",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "jquery": "~1.7.0"
+  }
+}
