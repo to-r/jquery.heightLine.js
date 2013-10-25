@@ -3,7 +3,8 @@
     "title": "heightLine",
     "description": "jQuery plugin for all elements of height arranging largest.",
     "keywords": [
-        "height"
+        "height",
+        "ui"
     ],
     "version": "1.0.1",
     "author": {
