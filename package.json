@@ -1,0 +1,25 @@
+{
+  "name": "heightline",
+  "version": "1.0.0",
+  "description": "jQuery plugin for all elements of height arranging largest",
+  "main": "jquery.heightLine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/to-r/jquery.heightLine.js.git"
+  },
+  "keywords": [
+    "jquery-plugin"
+  ],
+  "author": "KazumaNishihata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/to-r/jquery.heightLine.js/issues"
+  },
+  "homepage": "https://github.com/to-r/jquery.heightLine.js#readme",
+  "dependencies": {
+  "jquery": "^1.6.3"
+  }
+}
