@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/to-r/jquery.heightLine.js#readme",
   "dependencies": {
-  "jquery": "^1.6.3"
+  "jquery": "^3.5.0"
   }
 }
